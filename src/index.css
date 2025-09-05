@@ -134,6 +134,36 @@
     100% { background-position: 0% 50%; }
   }
 
+  @keyframes led-blink {
+    0%, 50% { opacity: 1; box-shadow: 0 0 10px hsl(var(--electric-blue)), 0 0 20px hsl(var(--electric-blue)), 0 0 30px hsl(var(--electric-blue)); }
+    51%, 100% { opacity: 0.3; box-shadow: none; }
+  }
+
+  @keyframes circuit-flow {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100vw); }
+  }
+
+  @keyframes chip-pulse {
+    0%, 100% { transform: scale(1); filter: brightness(1); }
+    50% { transform: scale(1.05); filter: brightness(1.2); }
+  }
+
+  @keyframes voltage-surge {
+    0%, 100% { 
+      text-shadow: 0 0 5px hsl(var(--electric-blue));
+    }
+    25% { 
+      text-shadow: 0 0 10px hsl(var(--electric-blue)), 0 0 20px hsl(var(--electric-blue));
+    }
+    50% { 
+      text-shadow: 0 0 15px hsl(var(--neon-purple)), 0 0 25px hsl(var(--neon-purple)), 0 0 35px hsl(var(--neon-purple));
+    }
+    75% { 
+      text-shadow: 0 0 10px hsl(var(--cyber-pink)), 0 0 20px hsl(var(--cyber-pink));
+    }
+  }
+
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
@@ -145,5 +175,53 @@
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient-shift 3s ease infinite;
+  }
+
+  .animate-led-blink {
+    animation: led-blink 1.5s ease-in-out infinite;
+  }
+
+  .animate-circuit-flow {
+    animation: circuit-flow 8s linear infinite;
+  }
+
+  .animate-chip-pulse {
+    animation: chip-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-voltage-surge {
+    animation: voltage-surge 4s ease-in-out infinite;
+  }
+
+  /* Electronics specific elements */
+  .led-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: hsl(var(--electric-blue));
+    box-shadow: 0 0 10px hsl(var(--electric-blue));
+  }
+
+  .circuit-trace {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, hsl(var(--electric-blue)), transparent);
+    width: 100px;
+  }
+
+  .microchip {
+    background: linear-gradient(145deg, hsl(var(--muted)), hsl(var(--card)));
+    border: 1px solid hsl(var(--border));
+    position: relative;
+  }
+
+  .microchip::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    background: linear-gradient(45deg, hsl(var(--neon-purple) / 0.1), hsl(var(--electric-blue) / 0.1));
+    border-radius: 2px;
   }
 }

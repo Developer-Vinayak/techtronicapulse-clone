@@ -1,26 +1,26 @@
-import { Code, Cpu, Lightbulb, Trophy } from "lucide-react";
+import { Code, Cpu, Lightbulb, Trophy, Zap, CircuitBoard, Wrench, Microchip } from "lucide-react";
 
 const About = () => {
   const features = [
     {
       icon: Code,
-      title: "Coding Competitions",
-      description: "Test your programming skills in various coding challenges and hackathons."
+      title: "Programming Contests",
+      description: "Master embedded programming, microcontroller coding, and IoT development challenges."
     },
     {
-      icon: Cpu,
-      title: "Tech Workshops",
-      description: "Learn from industry experts through hands-on workshops and seminars."
+      icon: CircuitBoard,
+      title: "Electronics Workshops",
+      description: "Hands-on PCB design, circuit analysis, and electronic component workshops."
     },
     {
-      icon: Lightbulb,
-      title: "Innovation Hub",
-      description: "Showcase your innovative projects and connect with like-minded individuals."
+      icon: Microchip,
+      title: "Hardware Innovation",
+      description: "Design and prototype innovative electronic devices and smart systems."
     },
     {
-      icon: Trophy,
-      title: "Win Big",
-      description: "Compete for amazing prizes and recognition in the tech community."
+      icon: Zap,
+      title: "Power Electronics",
+      description: "Explore power systems, renewable energy, and electrical engineering solutions."
     }
   ];
 
@@ -32,9 +32,10 @@ const About = () => {
             About <span className="bg-gradient-primary bg-clip-text text-transparent">Techtronica</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Techtronica is GLA University's premier technical festival, bringing together the brightest minds 
-            in technology for three days of innovation, competition, and learning. Join us for an unforgettable 
-            experience that will shape the future of technology.
+            Techtronica is the Electronics Department's flagship technical festival at GLA University, 
+            bringing together electronics enthusiasts, programmers, and innovators for three days of 
+            cutting-edge technology, circuit design competitions, and hands-on learning experiences 
+            in the world of electronics and embedded systems.
           </p>
         </div>
 
@@ -44,8 +45,10 @@ const About = () => {
               key={index} 
               className="bg-gradient-card border border-border rounded-xl p-6 hover:shadow-card transition-all duration-300 hover:scale-105 group"
             >
-              <div className="bg-gradient-primary rounded-lg w-12 h-12 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="bg-gradient-primary rounded-lg w-12 h-12 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 relative">
                 <feature.icon className="h-6 w-6 text-primary-foreground" />
+                {/* Add LED indicators for electronics theme */}
+                <div className="absolute -top-1 -right-1 w-2 h-2 bg-electric-blue rounded-full animate-led-blink" />
               </div>
               <h3 className="text-xl font-semibold mb-3 text-foreground">
                 {feature.title}
@@ -60,44 +63,51 @@ const About = () => {
         <div className="bg-gradient-card border border-border rounded-2xl p-8 md:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <h3 className="text-3xl font-bold mb-6 text-foreground">
-                Why Participate in Techtronica?
+              <h3 className="text-3xl font-bold mb-6 text-foreground flex items-center gap-3">
+                <CircuitBoard className="h-8 w-8 text-electric-blue animate-pulse" />
+                Why Join Techtronica?
+                <Zap className="h-6 w-6 text-cyber-pink animate-led-blink" />
               </h3>
               <ul className="space-y-4 text-muted-foreground">
                 <li className="flex items-start">
-                  <span className="text-primary mr-3 text-xl">•</span>
-                  Network with industry professionals and fellow tech enthusiasts
+                  <span className="text-electric-blue mr-3 text-xl">⚡</span>
+                  Learn cutting-edge electronics and embedded system technologies
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary mr-3 text-xl">•</span>
-                  Gain hands-on experience with cutting-edge technologies
+                  <span className="text-neon-purple mr-3 text-xl">🔧</span>
+                  Hands-on experience with PCB design and circuit prototyping
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary mr-3 text-xl">•</span>
-                  Showcase your skills and win exciting prizes
+                  <span className="text-cyber-pink mr-3 text-xl">💡</span>
+                  Network with electronics professionals and industry experts
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary mr-3 text-xl">•</span>
-                  Get mentorship from industry experts and successful entrepreneurs
+                  <span className="text-tech-green mr-3 text-xl">🏆</span>
+                  Compete in microcontroller programming and hardware design
                 </li>
                 <li className="flex items-start">
-                  <span className="text-primary mr-3 text-xl">•</span>
-                  Build lasting connections that can accelerate your career
+                  <span className="text-electric-blue mr-3 text-xl">🔌</span>
+                  Explore IoT, robotics, and automation technologies
                 </li>
               </ul>
             </div>
             <div className="space-y-6">
-              <div className="bg-muted/50 rounded-lg p-6 border border-border">
-                <div className="text-3xl font-bold text-primary mb-2">3</div>
-                <div className="text-sm text-muted-foreground">Days of Innovation</div>
+              <div className="bg-muted/50 rounded-lg p-6 border border-border relative overflow-hidden">
+                <div className="circuit-trace absolute top-0 left-0 animate-circuit-flow" />
+                <div className="text-3xl font-bold text-primary mb-2 flex items-center gap-2">
+                  3 <Zap className="h-6 w-6 animate-pulse" />
+                </div>
+                <div className="text-sm text-muted-foreground">Days of Electronics Innovation</div>
               </div>
-              <div className="bg-muted/50 rounded-lg p-6 border border-border">
+              <div className="bg-muted/50 rounded-lg p-6 border border-border relative">
+                <div className="absolute top-2 right-2 led-indicator animate-led-blink" />
                 <div className="text-3xl font-bold text-secondary mb-2">25+</div>
-                <div className="text-sm text-muted-foreground">Technical Events</div>
+                <div className="text-sm text-muted-foreground">Electronics & Programming Events</div>
               </div>
-              <div className="bg-muted/50 rounded-lg p-6 border border-border">
+              <div className="bg-muted/50 rounded-lg p-6 border border-border relative">
+                <div className="absolute top-2 right-2 microchip w-4 h-3 animate-chip-pulse" />
                 <div className="text-3xl font-bold text-accent mb-2">₹5L+</div>
-                <div className="text-sm text-muted-foreground">Prize Money</div>
+                <div className="text-sm text-muted-foreground">Prize Money & Components</div>
               </div>
             </div>
           </div>

@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { ChevronRight, Play, Users, Award, Calendar } from "lucide-react";
+import { ChevronRight, Play, Users, Award, Calendar, Zap } from "lucide-react";
+import ElectronicsFloatingElements from "@/components/ElectronicsFloatingElements";
 import heroBg from "@/assets/hero-bg.jpg";
+import circuitBg from "@/assets/circuit-bg.jpg";
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -42,38 +44,43 @@ const Hero = () => {
       id="home" 
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: `url(${heroBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundImage: `url(${circuitBg}), url(${heroBg})`,
+        backgroundSize: 'cover, cover',
+        backgroundPosition: 'center, center',
+        backgroundRepeat: 'no-repeat, no-repeat',
+        backgroundBlendMode: 'overlay'
       }}
     >
       {/* Overlay */}
-      <div className="absolute inset-0 bg-background/60 backdrop-blur-[2px]" />
+      <div className="absolute inset-0 bg-background/70 backdrop-blur-[1px]" />
       
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-20 h-20 bg-gradient-primary rounded-full opacity-20 animate-float" />
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-gradient-secondary rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }} />
-      <div className="absolute top-1/2 right-20 w-16 h-16 bg-gradient-hero rounded-full opacity-20 animate-float" style={{ animationDelay: '2s' }} />
+      {/* Electronics Floating Elements */}
+      <ElectronicsFloatingElements />
 
       <div className="relative z-10 container mx-auto px-4 text-center">
         {/* Main Content */}
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-hero bg-clip-text text-transparent glow-text">
+            <span className="bg-gradient-hero bg-clip-text text-transparent animate-voltage-surge">
               TECHTRONICA
             </span>
             <br />
-            <span className="text-3xl md:text-5xl text-foreground">
+            <span className="text-3xl md:text-5xl text-foreground flex items-center justify-center gap-2">
+              <Zap className="h-8 w-8 text-electric-blue animate-pulse" />
               2025
+              <Zap className="h-8 w-8 text-electric-blue animate-pulse" />
             </span>
           </h1>
           
           <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            <span className="text-electric-blue font-semibold">Electronics Department</span> presents
+            <br />
             The Ultimate Technical Festival at GLA University
             <br />
-            <span className="text-electric-blue font-semibold">
+            <span className="text-cyber-pink font-semibold flex items-center justify-center gap-2 mt-2">
+              <span className="led-indicator animate-led-blink" />
               March 15-17, 2025
+              <span className="led-indicator animate-led-blink" style={{ animationDelay: '0.5s' }} />
             </span>
           </p>
 

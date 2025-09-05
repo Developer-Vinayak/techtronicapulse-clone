@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import ElectronicsFloatingElements from "@/components/ElectronicsFloatingElements";
 import { 
   Facebook, 
   Twitter, 
@@ -40,16 +41,22 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-card border-t border-border pt-16 pb-8">
-      <div className="container mx-auto px-4">
+    <footer className="bg-card border-t border-border pt-16 pb-8 relative overflow-hidden">
+      {/* Electronics floating elements for footer */}
+      <div className="absolute inset-0 opacity-20">
+        <ElectronicsFloatingElements />
+      </div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand Section */}
           <div className="col-span-1 lg:col-span-1">
-            <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4">
+            <div className="text-3xl font-bold bg-gradient-primary bg-clip-text text-transparent mb-4 flex items-center gap-2">
+              <span className="led-indicator animate-led-blink" />
               TECHTRONICA
+              <span className="led-indicator animate-led-blink" style={{ animationDelay: '0.5s' }} />
             </div>
             <p className="text-muted-foreground mb-6">
-              GLA University's premier technical festival bringing together the brightest minds in technology.
+              Electronics Department's premier technical festival bringing together electronics enthusiasts and innovators.
             </p>
             <div className="space-y-3">
               <div className="flex items-center text-sm text-muted-foreground">

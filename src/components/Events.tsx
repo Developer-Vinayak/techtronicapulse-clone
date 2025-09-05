@@ -1,101 +1,101 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Users, Trophy, Clock } from "lucide-react";
+import { Calendar, MapPin, Users, Trophy, Clock, Cpu, CircuitBoard, Zap } from "lucide-react";
 
 const Events = () => {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
     { id: "all", name: "All Events" },
-    { id: "coding", name: "Coding" },
-    { id: "robotics", name: "Robotics" },
-    { id: "ai", name: "AI/ML" },
-    { id: "web", name: "Web Dev" },
+    { id: "embedded", name: "Embedded Systems" },
+    { id: "circuit", name: "Circuit Design" },
+    { id: "iot", name: "IoT & Automation" },
+    { id: "programming", name: "Programming" },
     { id: "workshops", name: "Workshops" }
   ];
 
   const events = [
     {
       id: 1,
-      title: "Code Rush",
-      category: "coding",
+      title: "Microcontroller Mastery",
+      category: "embedded",
       date: "March 15",
       time: "10:00 AM",
-      venue: "Lab 1",
+      venue: "Electronics Lab 1",
       participants: "Individual",
       prize: "₹50,000",
-      description: "Ultimate coding competition testing your algorithmic skills",
+      description: "Program microcontrollers and design embedded systems for real-world applications",
       registrations: 156,
       maxRegistrations: 200,
       difficulty: "Advanced"
     },
     {
       id: 2,
-      title: "Bot Wars",
-      category: "robotics",
+      title: "Circuit Craft Challenge",
+      category: "circuit",
       date: "March 16",
       time: "2:00 PM",
-      venue: "Arena Hall",
-      participants: "Team (3-4)",
+      venue: "PCB Design Lab",
+      participants: "Team (2-3)",
       prize: "₹75,000",
-      description: "Build and battle with your custom robots",
+      description: "Design and build innovative electronic circuits from scratch",
       registrations: 89,
       maxRegistrations: 120,
       difficulty: "Intermediate"
     },
     {
       id: 3,
-      title: "AI Summit",
-      category: "ai",
+      title: "IoT Innovation Hub",
+      category: "iot",
       date: "March 15",
       time: "11:00 AM",
-      venue: "Auditorium",
-      participants: "Individual",
+      venue: "Smart Systems Lab",
+      participants: "Team (3-4)",
       prize: "₹60,000",
-      description: "Machine learning and AI model competition",
+      description: "Create smart IoT solutions for modern automation challenges",
       registrations: 134,
       maxRegistrations: 150,
       difficulty: "Advanced"
     },
     {
       id: 4,
-      title: "Web Craft",
-      category: "web",
+      title: "Embedded Programming Sprint",
+      category: "programming",
       date: "March 17",
       time: "9:00 AM",
-      venue: "Lab 2",
-      participants: "Team (2-3)",
+      venue: "Programming Lab",
+      participants: "Individual",
       prize: "₹40,000",
-      description: "Create stunning web applications in 24 hours",
+      description: "Speed programming challenge for embedded systems and firmware",
       registrations: 98,
       maxRegistrations: 180,
       difficulty: "Beginner"
     },
     {
       id: 5,
-      title: "Blockchain Workshop",
+      title: "PCB Design Workshop",
       category: "workshops",
       date: "March 16",
       time: "3:00 PM",
-      venue: "Seminar Hall",
+      venue: "Design Studio",
       participants: "Individual",
-      prize: "Certificate",
-      description: "Learn blockchain development from industry experts",
+      prize: "Certificate + Kit",
+      description: "Learn professional PCB design and layout techniques",
       registrations: 67,
       maxRegistrations: 100,
       difficulty: "Beginner"
     },
     {
       id: 6,
-      title: "Hackathon 36",
-      category: "coding",
+      title: "Electronics Hackathon",
+      category: "circuit",
       date: "March 15-16",
       time: "6:00 PM",
-      venue: "Main Hall",
+      venue: "Main Electronics Lab",
       participants: "Team (3-5)",
       prize: "₹1,00,000",
-      description: "36-hour hackathon to solve real-world problems",
+      description: "36-hour hardware hackathon to solve electronics engineering problems",
       registrations: 78,
       maxRegistrations: 100,
       difficulty: "Advanced"
@@ -119,11 +119,13 @@ const Events = () => {
     <section id="events" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Featured <span className="bg-gradient-primary bg-clip-text text-transparent">Events</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 flex items-center justify-center gap-4">
+            <CircuitBoard className="h-10 w-10 text-electric-blue animate-pulse" />
+            Electronics <span className="bg-gradient-primary bg-clip-text text-transparent">Events</span>
+            <Zap className="h-8 w-8 text-cyber-pink animate-led-blink" />
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Choose from 25+ exciting technical events, workshops, and competitions
+            Participate in 25+ electronics competitions, embedded systems challenges, and hands-on workshops
           </p>
         </div>
 
@@ -146,8 +148,12 @@ const Events = () => {
           {filteredEvents.map((event) => (
             <div
               key={event.id}
-              className="bg-gradient-card border border-border rounded-xl p-6 hover:shadow-card transition-all duration-300 hover:scale-105 group"
+              className="bg-gradient-card border border-border rounded-xl p-6 hover:shadow-card transition-all duration-300 hover:scale-105 group relative overflow-hidden"
             >
+              {/* Electronics-themed decorative elements */}
+              <div className="absolute top-2 right-2 led-indicator animate-led-blink" style={{ animationDelay: `${event.id * 0.3}s` }} />
+              <div className="absolute bottom-2 left-2 circuit-trace w-8 opacity-30" />
+              
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
                   {event.title}
